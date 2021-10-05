@@ -34,15 +34,17 @@ app.use(express.static(path.join(__dirname, '../assets')))
 
 // Routes
 app.get('/getMessages', [mesgCtrl.getMessages])
-app.post('/postMessage', [mesgCtrl.postMessages, authCtrl.setCookie])
+// app.post('/postMessage', [mesgCtrl.postMessages, authCtrl.setCookie, authCtrl.sse])
+app.post('/postMessage', [mesgCtrl.postMessages, mesgCtrl.sse])
+app.get('/sse', [mesgCtrl.sse])
 app.delete('/deleteMessage', [authCtrl.verifyCookie, mesgCtrl.deleteMessage])
 // setup SSE
-app.get('/sse', (req, res) => {
-  res.set("Content-Type", "text/event-stream")
-  setInterval(() => {
-    res.status(200).write(`data: ${JSON.stringify(companies)}\n\n`)
-  }, 1000)
-})
+// app.get('/sse', (req, res) => {
+//   res.set("Content-Type", "text/event-stream")
+//   setInterval(() => {
+//     res.status(200).write(`data: ${JSON.stringify(companies)}\n\n`)
+//   }, 1000)
+// })
 // list all endpoints
 console.log('listEndPoinst ', listEndPoinst(app))
 // catch 404 and forward to error handler

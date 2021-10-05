@@ -30,13 +30,13 @@ const getCookie = () => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log('listener attached')
+  console.log('DOMContentLoaded')
 
   const getMessages = () => {
     fetch(APIEndPoint + '/getMessages')
       .then(res => res.json())
       .then(res => {
-        console.log(res)
+        console.log('getMessages ', res)
         loadPage(res)
       })
   }
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const saveBtn = document.getElementById('save')
   saveBtn.addEventListener('click', (event) => {
     console.log('saveBtn ', event.target)
-    console.log('saveBtn ', event.parentNode)
+    console.log('saveBtn parentNode', event.parentNode)
 
     const paswd = document.getElementById('pass').value
     const mesg = document.getElementById('desc').value
@@ -136,17 +136,16 @@ const createNewMesg = (paswd, mesg) => {
 
   fetch(request)
     .then(res => res.json())
-    .then(res => {
-      // console.log(res);
-      updatePage(res)
-    })
+    // .then(res => {
+    //   updatePage(res)
+    // })
     .catch(err => console.error(`error in createNewMesg helper ${err}`))
 }
 
 const updatePage = (data) => {
   console.log('updatePage ', data)
   // Update page
-  const list_container = document.getElementById('message-list')
+  const listContainer = document.getElementById('message-list')
 
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
@@ -159,17 +158,17 @@ const updatePage = (data) => {
   li.append(delBtn)
 
   // append to container
-  list_container.prepend(li)
+  listContainer.prepend(li)
   // reset page to empty strings
   document.getElementById('pass').value = ''
   document.getElementById('desc').value = ''
 }
 
 const loadPage = (data) => {
-  const list_container = document.getElementById('message-list')
+  const listContainer = document.getElementById('message-list')
 
   data.forEach((item) => {
-    console.log(item)
+    // console.log(item)
 
     const li = document.createElement('li')
 
@@ -183,14 +182,18 @@ const loadPage = (data) => {
     li.append(delBtn)
 
     // append to container
-    list_container.prepend(li)
+    listContainer.prepend(li)
   })
 }
 
 const eventSource = new EventSource('/sse')
 eventSource.addEventListener('message', (e) => {
   try {
+    let temp = JSON.parse(e.data)
     console.log(`eventListener registered ${e.data}`)
+    if (Object.entries(temp).length !== 0) {
+      updatePage(temp)
+    }
   } catch (e) {
     console.error(`error in eventListener ${e.message}`)
   }

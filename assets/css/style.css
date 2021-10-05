@@ -89,3 +89,13 @@ div.alert {
   display: none;
 }
 
+.ease-in {
+  /* This timing applies on the way OUT */
+  transition-timing-function: ease-in;
+  
+  /* Quick on the way out */
+  transition: 0.2s;
+  
+  /* Hide thing by pushing it outside by default */
+  /* transform: translateY(130%); */
+}
