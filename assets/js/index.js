@@ -169,7 +169,7 @@ const loadPage = (data) => {
   const list_container = document.getElementById('message-list')
 
   data.forEach((item) => {
-    console.log(item)
+    // console.log(item)
 
     const li = document.createElement('li')
 
