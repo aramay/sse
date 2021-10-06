@@ -38,7 +38,8 @@ app.post('/postMessage', [mesgCtrl.postMessages, authCtrl.setCookie])
 app.delete('/deleteMessage', [authCtrl.verifyCookie, mesgCtrl.deleteMessage])
 // setup SSE
 app.get('/sse', (req, res) => {
-  res.set("Content-Type", "text/event-stream")
+  res.set({"Content-Type: text/event-stream",
+  "Cache-Control: no-cache"})
   setInterval(() => {
     res.status(200).write(`data: ${JSON.stringify(companies)}\n\n`)
   }, 1000)

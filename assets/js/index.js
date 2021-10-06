@@ -95,7 +95,7 @@ const delMesg = (mesg, mesg_id, cookie) => {
     })
   })
 
-  fetch(request)
+  fetch (request)
     .then(res => res.json())
     .then(res => {
       console.log(res)
@@ -187,7 +187,9 @@ const loadPage = (data) => {
   })
 }
 
+// instantiated your EventSource interface
 const eventSource = new EventSource('/sse')
+// listen for messages from server by attaching a handler.
 eventSource.addEventListener('message', (e) => {
   try {
     console.log(`eventListener registered ${e.data}`)
