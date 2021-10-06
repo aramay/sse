@@ -30,7 +30,8 @@ const getCookie = () => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log('listener attached')
+  console.log('DOMContentLoaded listener attached')
+  document.getElementById('pass').value = '123'
 
   const getMessages = () => {
     fetch(APIEndPoint + '/getMessages')
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('saveBtn ', event.target)
     console.log('saveBtn ', event.parentNode)
 
+    document.getElementById('pass').value = '123'
     const paswd = document.getElementById('pass').value
     const mesg = document.getElementById('desc').value
     // call helper memthod to update page
@@ -144,9 +146,9 @@ const createNewMesg = (paswd, mesg) => {
 }
 
 const updatePage = (data) => {
-  console.log('updatePage ', data)
+  console.log(`updatePage ${data}`)
   // Update page
-  const list_container = document.getElementById('message-list')
+  const listContainer = document.getElementById('message-list')
 
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
@@ -159,14 +161,14 @@ const updatePage = (data) => {
   li.append(delBtn)
 
   // append to container
-  list_container.prepend(li)
+  listContainer.prepend(li)
   // reset page to empty strings
-  document.getElementById('pass').value = ''
+  document.getElementById('pass').value = '123'
   document.getElementById('desc').value = ''
 }
 
 const loadPage = (data) => {
-  const list_container = document.getElementById('message-list')
+  const listContainer = document.getElementById('message-list')
 
   data.forEach((item) => {
     // console.log(item)
@@ -183,7 +185,7 @@ const loadPage = (data) => {
     li.append(delBtn)
 
     // append to container
-    list_container.prepend(li)
+    listContainer.prepend(li)
   })
 }
 
