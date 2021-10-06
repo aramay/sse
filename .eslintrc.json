@@ -7,14 +7,17 @@
     "jquery": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  // "extends": "eslint:recommended",
   "parserOptions": { "sourceType": "module" },
   "rules": {
     "indent": ["warn", 2],
     "no-unused-vars": ["off", { "vars": "local" }],
     "prefer-const": "warn",
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "double"],
     "semi": ["warn", "always"],
     "space-infix-ops": "warn"
+  },
+  "globals": {
+    "fetch": false
   }
 }
