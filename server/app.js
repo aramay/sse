@@ -36,10 +36,16 @@ app.use(express.static(path.join(__dirname, '../assets')))
 app.get('/getMessages', [mesgCtrl.getMessages])
 app.post('/postMessage', [mesgCtrl.postMessages, authCtrl.setCookie])
 app.delete('/deleteMessage', [authCtrl.verifyCookie, mesgCtrl.deleteMessage])
-// setup SSE
+// setup SSE BE Route
 app.get('/sse', (req, res) => {
-  res.set({"Content-Type: text/event-stream",
-  "Cache-Control: no-cache"})
+
+  res.set({
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    'Connection': 'keep-alive',
+    'Access-Control-Allow-Origin': '*'
+  }
+  )
   setInterval(() => {
     res.status(200).write(`data: ${JSON.stringify(companies)}\n\n`)
   }, 1000)
