@@ -5,19 +5,6 @@
   font-family: Arial, sans-serif;
 }
 
-body, html {
-  background-color: #1a1a1a;
-  height: 100%;
-  
-}
-.wrapper {
-  width: 60%;
-  height: 100%;
-  margin: 100px auto;
-}
-
-
-
 
 #container {
   position: relative;
