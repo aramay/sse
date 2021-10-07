@@ -146,12 +146,16 @@ const createNewMesg = (paswd, mesg) => {
 }
 
 const updatePage = (data) => {
-  console.log(`updatePage ${data}`)
+  // Update page
+  console.log('updatePage ', data)
   // Update page
   const listContainer = document.getElementById('message-list')
 
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
+  // li.setAttribute('class', 'newmesg')
+  li.classList.add('box', 'faded-out')
+  // create BTN type - delete
   const delBtn = createBtn('Delete')
   // set class del
   delBtn.setAttribute('class', 'del')
@@ -165,6 +169,10 @@ const updatePage = (data) => {
   // reset page to empty strings
   document.getElementById('pass').value = '123'
   document.getElementById('desc').value = ''
+
+  requestAnimationFrame(() => {
+    li.classList.remove('faded-out')
+  })
 }
 
 const loadPage = (data) => {
