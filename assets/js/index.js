@@ -31,6 +31,7 @@ const getCookie = () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('DOMContentLoaded')
+  document.getElementById('pass').value = '123'
 
   const getMessages = () => {
     fetch(APIEndPoint + '/getMessages')
@@ -149,6 +150,8 @@ const updatePage = (data) => {
 
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
+  li.setAttribute('class', 'newmesg')
+  // create BTN type - delete
   const delBtn = createBtn('Delete')
   // set class del
   delBtn.setAttribute('class', 'del')
@@ -160,7 +163,7 @@ const updatePage = (data) => {
   // append to container
   listContainer.prepend(li)
   // reset page to empty strings
-  document.getElementById('pass').value = ''
+  document.getElementById('pass').value = '123'
   document.getElementById('desc').value = ''
 }
 
