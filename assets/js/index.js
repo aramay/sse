@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   })
 
   // attach listener to Delete btn
-  const mesgContainer = document.getElementById('message-list')
+  // const mesgContainer = document.getElementById('message-list')
+  const mesgContainer = document.querySelector('ul#message-list')
   // const mesgContainer = document.getElementsByClassName('del');
 
   mesgContainer.addEventListener('click', (event) => {

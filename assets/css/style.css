@@ -131,4 +131,8 @@ ul#message-list li {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 
-ul#message-list li { color: #030508; font-size: 29px; font-family: "Libre Baskerville", serif; line-height: 45px; text-shadow: 0 1px 1px #fff; padding-top: 20px; }
+ul#message-list li { color: #030508; font-size: 29px; font-family: "Libre Baskerville", serif; line-height: 45px; text-shadow: 0 1px 1px #fff; padding-top: 20px; border-radius: 10px;}
+
+.round-border {
+  border-radius: 10px;
+}
