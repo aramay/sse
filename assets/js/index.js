@@ -144,13 +144,15 @@ const createNewMesg = (paswd, mesg) => {
 }
 
 const updatePage = (data) => {
+  // Update page
   console.log('updatePage ', data)
   // Update page
   const listContainer = document.getElementById('message-list')
 
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
-  li.setAttribute('class', 'newmesg')
+  // li.setAttribute('class', 'newmesg')
+  li.classList.add('newmesg', 'faded-out')
   // create BTN type - delete
   const delBtn = createBtn('Delete')
   // set class del
