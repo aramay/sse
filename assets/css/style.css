@@ -136,3 +136,7 @@ ul#message-list li {
 ul#message-list li { color: #030508; font-size: 29px; font-family: "Libre Baskerville", serif; line-height: 45px; text-shadow: 0 1px 1px #fff; padding-top: 20px; }
 
 h1 { color: #f2f2f2; background: #ff4a4a; font-size: 75px; line-height: 74px; font-weight: 700; margin: 0 5px 24px; float: left; padding: 10px; margin: 0 5px 24px; font-family: 'Libre Baskerville', serif; }
+
+.round-border {
+  border-radius: 10px;
+}
