@@ -152,7 +152,7 @@ const updatePage = (data) => {
   const li = document.createElement('li')
   li.setAttribute('id', data._id)
   // li.setAttribute('class', 'newmesg')
-  li.classList.add('newmesg', 'faded-out')
+  li.classList.add('box', 'faded-out')
   // create BTN type - delete
   const delBtn = createBtn('Delete')
   // set class del
@@ -167,6 +167,10 @@ const updatePage = (data) => {
   // reset page to empty strings
   document.getElementById('pass').value = '123'
   document.getElementById('desc').value = ''
+
+  requestAnimationFrame(() => {
+    li.classList.remove('faded-out')
+  })
 }
 
 const loadPage = (data) => {
