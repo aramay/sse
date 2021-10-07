@@ -109,7 +109,10 @@ div.alert {
   will-change: opacity;
 }
 
-
+.box {
+  transition: opacity 4000ms;
+  will-change: opacity;
+}
 
 .box.faded-out {
   opacity: 0;
